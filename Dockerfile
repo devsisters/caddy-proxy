@@ -6,7 +6,7 @@ RUN apk update && apk upgrade && \
     rm -rf /var/cache/apk/*
 
 RUN mkdir -p /tmp/caddy \
- && curl -sL -o /tmp/caddy/caddy_linux_amd64.tar.gz "https://caddyserver.com/download/build?os=linux&arch=amd64" \
+ && curl -sL -o /tmp/caddy/caddy_linux_amd64.tar.gz "https://caddyserver.com/download/build?os=linux&arch=amd64&features=route53" \
  && tar -zxf /tmp/caddy/caddy_linux_amd64.tar.gz -C /tmp/caddy \
  && mv /tmp/caddy/caddy /usr/bin/ \
  && chmod +x /usr/bin/caddy \

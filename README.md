@@ -13,7 +13,9 @@ If you want the container protected by HTTP Basic Authentication add a `BASIC_AU
 $ docker run -e VIRTUAL_HOST=foo.bar.com -e BASIC_AUTH="/ myname mysecrect" ...
 ```
 
-Then to run it:
+You must add AWS EC2 IAM Role or add `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` with permissions. See [lego](https://github.com/xenolf/lego#aws-route-53) for more details.
+
+Then to run caddy-proxy:
 ```sh
 $ docker run -v /var/run/docker.sock:/tmp/docker.sock:ro -v /data/.caddy:/root/.caddy --name caddy-proxy -p 80:80 -p 443:443 -e CADDY_OPTIONS="--email youremail@example.com" -d blackglory/caddy-proxy:0.2.1
 ```
